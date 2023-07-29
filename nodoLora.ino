@@ -1,3 +1,4 @@
+
 /*
   LoRa Simple Gateway/Node Exemple
 
@@ -32,6 +33,7 @@ const long frequency = 868.1E6;  // LoRa Frequency
 const int csPin = 10;          // LoRa radio chip select
 const int resetPin = 9;        // LoRa radio reset
 const int irqPin = 2;          // change for your board; must be a hardware interrupt pin
+int cuenta=0;
 
 void setup() {
   Serial.begin(9600);                   // initialize serial
@@ -59,17 +61,18 @@ void setup() {
 }
 
 void loop() {
-  if (runEvery(3000)) { // repeat every x000 millis
-      
+  if (runEvery(5000)) { // repeat every 1000 millis
 
-    String message = "Juan";
-    message += " Sebastián";
-    message += " Mamián";
-    message+=" López";
+    String message = "HeLoRa World! ";
+    message += "I'm a Node! ";
+    message += millis();
 
     LoRa_sendMessage(message); // send a message
 
-    Serial.println("Sent");
+    Serial.print("Send Message!");
+    Serial.print(cuenta);
+    Serial.println(" ");
+    cuenta++;
   }
 }
 

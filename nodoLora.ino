@@ -47,7 +47,7 @@ void setup() {
     while (true);                       // if failed, do nothing
   }
 
-  Serial.println("LoRa init succeeded.");
+  Serial.println("LoRa init exitoso.");
   Serial.println();
   Serial.println("LoRa Simple Node");
   Serial.println("Only receive messages from gateways");
@@ -61,19 +61,19 @@ void setup() {
 }
 
 void loop() {
-  if (runEvery(5000)) { // repeat every 1000 millis
+  if (runEvery(1000)) { // repeat every 1000 millis
 
-    String message = "HeLoRa World! ";
-    message += "I'm a Node! ";
-    message += millis();
+    String message = "Mensaje";
+    cuenta++;
+    message += cuenta;
 
     LoRa_sendMessage(message); // send a message
 
     Serial.print("Send Message!");
     Serial.print(cuenta);
     Serial.println(" ");
-    cuenta++;
   }
+
 }
 
 void LoRa_rxMode(){
